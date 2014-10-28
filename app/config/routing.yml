@@ -1,0 +1,22 @@
+sweb_blog_create:
+    path: /posts/create
+    defaults: { _controller: SwebBlogBundle:Posts:create }
+sweb_blog_viewAll:
+    path: /posts
+    defaults: { _controller: SwebBlogBundle:Posts:viewAll }
+sweb_blog_view:
+    path: /posts/view/{id}
+    defaults: { _controller: SwebBlogBundle:Posts:view }
+sweb_blog_index:
+    path: /
+    defaults: { _controller: SwebBlogBundle:Index:home }
+sweb_blog_about:
+    path: /about
+    defaults: { _controller: SwebBlogBundle:Index:about }
+sweb_blog_contact:
+    path: /contact
+    defaults: { _controller: SwebBlogBundle:Index:contact }
+sweb_users:
+    path: /users/create
+    defaults: { _controller: SwebBlogBundle:Users:create }
+

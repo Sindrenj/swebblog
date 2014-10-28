@@ -1,0 +1,9 @@
+{% extends 'SwebBlogBundle:Default:layout.html.twig' %}
+{% block main_content %}
+    <h2>{{ main_content_title }}</h2>
+    <ol id="postListing">
+        {% for post in posts %}
+            <li><a href="/posts/view/{{ post.id }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ol>
+{% endblock %}

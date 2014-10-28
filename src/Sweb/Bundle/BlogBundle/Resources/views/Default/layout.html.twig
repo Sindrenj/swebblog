@@ -1,0 +1,32 @@
+{# src/Sweb/BlogBundle/Resources/views/layout.html.twig #}
+<!DOCTYPE html>
+<html>
+      <head>
+          <title> {{ page_title }} </title>
+          {% stylesheets '@SwebBlogBundle/Resources/Public/css/default.css'  %}
+          <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+          {% endstylesheets %}
+      </head>
+      <body>
+        <div id="wrapper">
+            <h1>{{ page_title }}</h1>
+            <nav>
+                <ul id="menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/posts">Posts</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/posts/create">Create a post</a></li>
+                    <li><a href="/users/create">Create an user</a></li>
+                </ul>
+            </nav>
+            <section id="mainContent">
+                {% block main_content %}
+                {% endblock %}
+            </section>
+            <footer>
+                <p>Copyright © 2014 Blogpage.foo</p>
+            </footer>
+        </div>
+      </body>
+</html>

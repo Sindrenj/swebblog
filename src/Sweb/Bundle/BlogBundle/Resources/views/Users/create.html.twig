@@ -1,0 +1,5 @@
+{% extends 'SwebBlogBundle:Default:layout.html.twig' %}
+{% form_theme form with 'SwebBlogBundle:Form:fields.html.twig' %}
+{% block main_content %}
+    {{ form(form) }}
+{% endblock %}
