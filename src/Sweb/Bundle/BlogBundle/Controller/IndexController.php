@@ -18,7 +18,7 @@ class IndexController extends Controller {
 	$post = $this->getDoctrine()->getRepository('SwebBlogBundle:Post')->find(1);
 
     return $this->render('SwebBlogBundle:Posts:post.html.twig', array(
-		'page_title' => 'Blog - Home',
+		'page_title' => 'Sindrenj.no',
 		'post' => $post
 	));
   }

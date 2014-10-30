@@ -3,9 +3,8 @@
 <html>
       <head>
           <title> {{ page_title }} </title>
-          {% stylesheets '@SwebBlogBundle/Resources/Public/css/default.css'  %}
-          <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
-          {% endstylesheets %}
+          <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+          <link href="{{ asset('bundles/swebblog/css/default.css') }}" rel="stylesheet" type="text/css" />
       </head>
       <body>
         <div id="wrapper">

@@ -50,6 +50,7 @@ class PostsController extends Controller {
 	  //Setup the form with the post-object:
 	  $form = $this->createFormBuilder($post)
 		->add('title', 'text')
+		->add('author', 'integer', array('mapped' => false))
 		->add('summary', 'text')
 		->add('content', 'textarea')
 	    ->add('save', 'submit', array('label' => 'Create post'))
@@ -61,21 +62,23 @@ class PostsController extends Controller {
 	  if( $form->isValid() ) {
 		  //Get the ORM-manager:
 		  $orm = $this->getDoctrine()->getManager();
+		  $authorid = $form->get('author')->getData();
 		  //And get the user that is the author:
-		  $user = $orm->getRepository('SwebBlogBundle:User')->find(1);
+		  $user = $orm->getRepository('SwebBlogBundle:User')->find($authorid);
 		  //Add the author to the post:
 		  $post->setAuthor($user);
 		  //Tell ORM to persist the object:
 		  $orm->persist($post);
 		  //Flush - Save by sending a sql-commando:
 		  $orm->flush();
-		  //Save the data to the database:
+		  //Render a response:
 		  return $this->render('SwebBlogBundle:Index:home.html.twig', array(
 			'page_title' => 'Blog - Posts.',
 			'main_content_title' => 'Success!',
 			'content' => 'The post were created.'
 		  ));
 	  }
+
 	  //Render the form to the view:
 	  return $this->render('SwebBlogBundle:Posts:create.html.twig', array(
 		'page_title' => 'Blog - Create a post.',

@@ -1,3 +1,7 @@
+hydra:
+    resource: "@HydraBundle/Controller/"
+    type:     annotation
+    prefix:   /hydra/
 sweb_blog_create:
     path: /posts/create
     defaults: { _controller: SwebBlogBundle:Posts:create }
@@ -19,4 +23,5 @@ sweb_blog_contact:
 sweb_users:
     path: /users/create
     defaults: { _controller: SwebBlogBundle:Users:create }
+
 
