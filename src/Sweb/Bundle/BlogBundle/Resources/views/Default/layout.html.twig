@@ -5,6 +5,11 @@
           <title> {{ page_title }} </title>
           <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
           <link href="{{ asset('bundles/swebblog/css/default.css') }}" rel="stylesheet" type="text/css" />
+          {% if rdfProfile is defined %}
+          <script type="application/ld+json">
+              {{ rdfProfile|raw }}
+          </script>
+          {% endif %}
       </head>
       <body>
         <div id="wrapper">
@@ -24,7 +29,7 @@
                 {% endblock %}
             </section>
             <footer>
-                <p>Copyright © 2014 Blogpage.foo</p>
+                <p>Copyright © 2014 Sindrenj.no</p>
             </footer>
         </div>
       </body>

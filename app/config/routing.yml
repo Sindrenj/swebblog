@@ -23,5 +23,8 @@ sweb_blog_contact:
 sweb_users:
     path: /users/create
     defaults: { _controller: SwebBlogBundle:Users:create }
+sweb_login:
+    path: /login
+    defaults: { _controller: SwebBlogBundle:Users:login }
 
 

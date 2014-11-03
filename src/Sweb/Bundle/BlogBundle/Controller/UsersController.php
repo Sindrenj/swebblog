@@ -16,10 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 class UsersController extends Controller{
 
 	public function createAction( Request $request ) {
-		$default = array(
-		  'page_title' => 'Create a post'
-
-		);
 		//Create a post-object that can be used to configure the form:
 		$user = new User();
 		//Setup the form with the post-object:
@@ -58,5 +54,28 @@ class UsersController extends Controller{
 		));
 
 	}
+
+	public function loginAction() {
+		$user = new User();
+		//Setup the form with the post-object:
+		$form = $this->createFormBuilder($user)
+		  ->add('nick', 'text')
+		  ->add('password', 'password')
+		  ->add('save', 'submit', array('label' => 'Create user'))
+		  ->getForm();
+
+		return $this->render('SwebBlogBundle:Users:create.html.twig', array(
+		  'page_title' => 'Sindrenj.no',
+		  'main_content_title' => 'Login',
+		  'success' => false,
+		  'form' => $form->createView()
+		));
+	}
+
+	public function logoutAction() {
+
+	}
+
+
 
 } 

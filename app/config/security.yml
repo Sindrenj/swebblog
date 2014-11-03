@@ -1,12 +1,19 @@
 security:
+    encoders\Sweb\BlogBundle\Entity\User:
+      algorithms: bcrypt
+
+    role_hierachy:
+      ROLE_ADMIN: ROLE_USER
+      ROLE_SUPER_ADMIN: [ ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH ]
+
     providers:
-        in_memory:
-            memory: ~
+        administrators:
+          entity: { class: Sweb\BlogBundle\Entity:User, propety: nick }
 
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
+        admin_area:
+           pattern:    ^/admin
+           http_basic: ~
 
-        default:
-            anonymous: ~
+          access_control:
+              - { path: ^/admin, roles: ROLE_ADMIN }
